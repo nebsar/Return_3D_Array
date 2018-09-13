@@ -78,18 +78,52 @@ getArr getArrr() {
     return arr;
 }
 
+//////////////////// STRUCT ARRAY ///////////////////////////////////////////
+
+struct ArrStruct {
+    int arr[N][N][N];
+
+};
+
+void printStructArr(ArrStruct as) {
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            for (int k = 0; k < N; ++k)
+                std::cout << "i: " << i << " j: " << j << " k: " << k << "\t" << as.arr[i][j][k] << '\n';
+        }
+    }
+}
+
+ArrStruct createArrStruct() {
+    ArrStruct arrst;
+    for (int i = 0; i < N; ++i) {
+
+        for (int j = 0; j < N; ++j) {
+
+            for (int k = 0; k < N; ++k) {
+                arrst.arr[i][j][k] = i + j + k;
+            }
+        }
+    }
+
+    return arrst;
+}
+
 int main(int argc, char** argv) {
 
-    // int*** arr = getArray();
+    int*** arr = getArray();
 
-    // printArray(arr);
+    printArray(arr);
 
     int (*array)[N][N] = getArrr();
 
     printArr(array);
 
 
-    //  int (*(*(array)())[N])[N];
+    ArrStruct a = createArrStruct();
+
+    printStructArr(a);
+
 
     return 0;
 }
